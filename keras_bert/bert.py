@@ -38,7 +38,6 @@ def get_model(token_num,
               output_layer_num=1,
               use_task_embed=False,
               task_num=10,
-              use_adapter=False,
               adapter_units=None):
     """Get BERT model.
 
