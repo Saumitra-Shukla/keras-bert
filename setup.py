@@ -25,7 +25,7 @@ def find_version(*file_paths):
 
 
 setup(
-    name='keras-bert',
+    name='keras_bert',
     version=find_version('keras_bert', '__init__.py'),
     url='https://https://github.com/Saumitra-Shukla/keras-bert',
     license='MIT',
