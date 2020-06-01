@@ -107,12 +107,14 @@ def get_model(token_num,
             rate=dropout_rate,
             name='Embedding-Dropout',
         )(embed_layer)
+        
     else:
         dropout_layer = embed_layer
     embed_layer = LayerNormalization(
         trainable=trainable,
         name='Embedding-Norm',
     )(dropout_layer)
+    
     transformed = get_encoders(
         encoder_num=transformer_num,
         input_layer=embed_layer,
@@ -121,9 +123,6 @@ def get_model(token_num,
         attention_activation=attention_activation,
         feed_forward_activation=feed_forward_activation,
         dropout_rate=dropout_rate,
-        use_adapter=use_adapter,
-        adapter_units=adapter_units,
-        adapter_activation=gelu,
     )
     if training:
         mlm_dense_layer = keras.layers.Dense(
